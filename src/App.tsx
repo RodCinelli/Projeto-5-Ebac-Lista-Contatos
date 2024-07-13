@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// src/App.tsx
+import React, { useState } from 'react';
+import ContactList from './components/ContactList/ContactList';
+import Sidebar from './components/Sidebar/Sidebar';
+import GlobalStyle from './styles/globalStyles';
+import { Container, Content, Title } from './styles/containerStyles';
 
-function App() {
+const App: React.FC = () => {
+  const [searchQuery, setSearchQuery] = useState('');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <GlobalStyle />
+      <Container>
+        <Sidebar onSearch={setSearchQuery} />
+        <Content>
+          <Title>Lista de Contatos</Title>
+          <ContactList searchQuery={searchQuery} />
+        </Content>
+      </Container>
+    </>
   );
-}
+};
 
 export default App;
