@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import ContactForm from '../ContactForm/ContactForm';
 import { SidebarContainer, SearchInput, SearchResult, SearchResultItem, SearchButton, ErrorMessage } from './styles';
@@ -10,15 +10,6 @@ const Sidebar: React.FC<{ onSearch: (query: string) => void }> = ({ onSearch }) 
   const [searchResult, setSearchResult] = useState<{ name: string; email: string; phone: string } | null>(null);
   const contacts = useSelector((state: RootState) => state.contacts);
 
-  useEffect(() => {
-    if (search) {
-      const result = contacts.find(contact => contact.name.toLowerCase().includes(search.toLowerCase()));
-      setSearchResult(result || null);
-    } else {
-      setSearchResult(null);
-    }
-  }, [search, contacts]);
-
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
     setError('');
@@ -29,6 +20,8 @@ const Sidebar: React.FC<{ onSearch: (query: string) => void }> = ({ onSearch }) 
       setError('Por favor, digite um nome para buscar');
       return;
     }
+    const result = contacts.find(contact => contact.name.toLowerCase().includes(search.toLowerCase()));
+    setSearchResult(result || null);
     onSearch(search);
   };
 

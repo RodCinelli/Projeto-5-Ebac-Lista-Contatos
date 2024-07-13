@@ -21,6 +21,6 @@ export const Content = styled.div`
 
 export const Title = styled.h1`
   text-align: center;
-  color: #007bff;
+  color: #343a40;
   margin-bottom: 20px;
 `;

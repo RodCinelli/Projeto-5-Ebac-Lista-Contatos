@@ -10,9 +10,8 @@ export const List = styled.ul`
 export const ListItem = styled.li`
   padding: 20px;
   border-bottom: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: block;
+  position: relative; /* Para posicionar os botões de forma absoluta */
   transition: background-color 0.3s;
 
   &:hover {
@@ -38,6 +37,9 @@ export const ContactInfo = styled.div`
 export const Buttons = styled.div`
   display: flex;
   gap: 10px;
+  position: absolute; /* Posicionamento absoluto */
+  right: 20px; /* Alinhar à direita */
+  top: 37px; /* Ajustar conforme necessário para alinhar verticalmente */
 `;
 
 export const Button = styled.button<{ delete?: boolean }>`
