@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import ContactForm from '../ContactForm/ContactForm';
-import { SidebarContainer, SearchInput, SearchResult, SearchResultItem, SearchButton, ErrorMessage } from './styles';
+import { SidebarContainer, SearchInput, SearchResult, SearchResultItem, SearchButton, ClearButton, ErrorMessage } from './styles';
 import { RootState } from '../../store/store';
 
 const Sidebar: React.FC<{ onSearch: (query: string) => void }> = ({ onSearch }) => {
@@ -25,6 +25,13 @@ const Sidebar: React.FC<{ onSearch: (query: string) => void }> = ({ onSearch }) 
     onSearch(search);
   };
 
+  const handleClearClick = () => {
+    setSearch('');
+    setSearchResult(null);
+    setError('');
+    onSearch(''); // Atualiza a lista de contatos para exibir todos os contatos
+  };
+
   const handleContactAdded = () => {
     setSearch('');
     setSearchResult(null);
@@ -43,6 +50,7 @@ const Sidebar: React.FC<{ onSearch: (query: string) => void }> = ({ onSearch }) 
         onChange={handleSearchChange}
       />
       <SearchButton onClick={handleSearchClick}>Pesquisar</SearchButton>
+      <ClearButton onClick={handleClearClick}>Limpar</ClearButton>
       {searchResult && (
         <SearchResult>
           <h4>Resultado da Pesquisa:</h4>

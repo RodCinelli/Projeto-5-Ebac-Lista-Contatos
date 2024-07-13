@@ -29,10 +29,24 @@ export const SearchButton = styled.button`
   background-color: #007bff;
   color: white;
   cursor: pointer;
-  margin-bottom: 40%; /* Ajustar a margem inferior para separar o botão do resultado */
 
   &:hover {
     background-color: #0056b3;
+  }
+`;
+
+export const ClearButton = styled.button`
+  width: 40%;
+  padding: 6px;
+  border: none;
+  border-radius: 4px;
+  background-color: #6c757d;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 30%; /* Ajustar a margem inferior para separar o botão do resultado */
+
+  &:hover {
+    background-color: #5a6268;
   }
 `;
 
