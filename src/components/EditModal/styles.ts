@@ -1,18 +1,21 @@
-// src/components/EditModal/styles.ts
 import styled from 'styled-components';
 
 export const ModalContainer = styled.div`
   padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
 `;
 
 export const ModalHeader = styled.h2`
   margin-top: 0;
+  color: #343a40;
+  text-align: center;
 `;
 
 export const ModalBody = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
   margin-bottom: 20px;
 `;
 
@@ -26,6 +29,7 @@ export const Input = styled.input`
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  font-size: 1em;
 `;
 
 export const Button = styled.button`
