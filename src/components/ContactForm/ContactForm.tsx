@@ -10,6 +10,32 @@ const ContactForm: React.FC<{ onContactAdded: () => void }> = ({ onContactAdded 
   const [error, setError] = useState('');
   const dispatch = useDispatch();
 
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const formattedPhone = formatPhoneNumber(e.target.value);
+    setPhone(formattedPhone);
+  };
+
+  const formatPhoneNumber = (value: string) => {
+    // Remove all non-digit characters
+    const phoneDigits = value.replace(/\D/g, '');
+
+    // Handle empty value
+    if (phoneDigits === '') {
+      return '';
+    }
+
+    // Format the phone number
+    if (phoneDigits.length <= 2) {
+      return `(${phoneDigits}`;
+    } else if (phoneDigits.length <= 6) {
+      return `(${phoneDigits.slice(0, 2)}) ${phoneDigits.slice(2)}`;
+    } else if (phoneDigits.length <= 10) {
+      return `(${phoneDigits.slice(0, 2)}) ${phoneDigits.slice(2, 6)}-${phoneDigits.slice(6)}`;
+    } else {
+      return `(${phoneDigits.slice(0, 2)}) ${phoneDigits.slice(2, 7)}-${phoneDigits.slice(7, 11)}`;
+    }
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!name || !email || !phone) {
@@ -43,7 +69,7 @@ const ContactForm: React.FC<{ onContactAdded: () => void }> = ({ onContactAdded 
         type="tel"
         placeholder="Telefone"
         value={phone}
-        onChange={(e) => setPhone(e.target.value)}
+        onChange={handlePhoneChange}
       />
       <Button type="submit">Adicionar Contato</Button>
     </Form>

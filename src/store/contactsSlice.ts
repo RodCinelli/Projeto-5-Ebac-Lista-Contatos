@@ -9,12 +9,12 @@ interface Contact {
 }
 
 const initialState: Contact[] = [
-  { id: 1, name: 'Alice Silva', email: 'alice.silva@example.com', phone: '11999998888' },
-  { id: 2, name: 'Bruno Souza', email: 'bruno.souza@example.com', phone: '21988887777' },
-  { id: 3, name: 'Carlos Pereira', email: 'carlos.pereira@example.com', phone: '31977776666' },
-  { id: 4, name: 'Daniela Oliveira', email: 'daniela.oliveira@example.com', phone: '41966665555' },
-  { id: 5, name: 'Eduardo Santos', email: 'eduardo.santos@example.com', phone: '51955554444' },
-  { id: 6, name: 'Fernanda Lima', email: 'fernanda.lima@example.com', phone: '61944443333' },
+  { id: 1, name: 'Alice Silva', email: 'alice.silva@example.com', phone: '(11) 99999-8888' },
+  { id: 2, name: 'Bruno Souza', email: 'bruno.souza@example.com', phone: '(21) 98888-7777' },
+  { id: 3, name: 'Carlos Pereira', email: 'carlos.pereira@example.com', phone: '(31) 97777-6666' },
+  { id: 4, name: 'Daniela Oliveira', email: 'daniela.oliveira@example.com', phone: '(41) 96666-5555' },
+  { id: 5, name: 'Eduardo Santos', email: 'eduardo.santos@example.com', phone: '(51) 95555-4444' },
+  { id: 6, name: 'Fernanda Lima', email: 'fernanda.lima@example.com', phone: '(61) 94444-3333' },
 ];
 
 const contactsSlice = createSlice({
